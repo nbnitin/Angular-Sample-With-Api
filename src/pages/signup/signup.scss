@@ -1,0 +1,30 @@
+@import "../../styles.scss";
+
+.login-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.example-form {
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.btn-login {
+  color: white;
+  background: map-get($p, x);
+  width: 100%;
+}
+
+.btn-singup {
+  color: white;
+  background: map-get($p, y);
+  float: right;
+}

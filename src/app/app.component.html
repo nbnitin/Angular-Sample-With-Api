@@ -1,0 +1,4 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-header [check]="this.checkLoggedIn" (checkOutHeader)="checkOut1($event)"></app-header>
+<router-outlet></router-outlet>
+<app-footer [check]="this.checkLoggedIn" (checkOutFooter)="checkOut2($event)"></app-footer>

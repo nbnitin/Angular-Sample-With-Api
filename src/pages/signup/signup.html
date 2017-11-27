@@ -1,0 +1,18 @@
+<div class="login-container">
+  <h1> Sing Up </h1>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="UserName" value="" name="userName" [(ngModel)]="userInfo.userName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput type="password" placeholder="Password" value="" name="password" [(ngModel)]="userInfo.password">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput type="password" placeholder="Confirm Password" name="cPassword" value="" [(ngModel)]="userInfo.cPassword">
+    </mat-form-field>
+  </form>
+  <mat-error *ngIf="notMatch">Password Not Matched</mat-error>
+  <button mat-raised-button class="btn-login" (click)="createUser()">Sing Up</button>
+</div>

@@ -1,0 +1,25 @@
+.loggedInHeader {
+  width: 100%;
+  background: lightgrey;
+  color: black;
+  padding: 22px 0;
+  margin-bottom: 20px;
+  text-align: center;
+
+  nav {
+    //width: 80%;
+    //margin: 0 auto;
+    a {
+      margin-right: 30px;
+    }
+  }
+}
+
+.notLoggedInHeader {
+  width: 100%;
+  background: lightgrey;
+  color: black;
+  text-align: center;
+  padding: 22px 0;
+  margin-bottom: 2px;
+}

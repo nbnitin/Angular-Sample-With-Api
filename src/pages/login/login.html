@@ -1,0 +1,16 @@
+<div class="login-container">
+  <h1> Login </h1>
+  <mat-error *ngIf="failedLogin">Invalid Credentials</mat-error>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="UserName" name="userName" [(ngModel)]="details.userName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" name="password" [(ngModel)]="details.password">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button class="btn-login" (click)="login()">Login</button>
+  <button mat-raised-button class="btn-singup" (click)="redirect()">Sign Up</button>
+
+</div>
