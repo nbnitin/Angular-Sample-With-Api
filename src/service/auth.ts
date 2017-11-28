@@ -20,6 +20,7 @@ export class Auth implements CanActivate, CanDeactivate<CanComponentDeactivate> 
   }
 
   canDeactivate(component: CanComponentDeactivate) {
+    console.log(component)
     let x = window.confirm("Do you really want to go back?");
     if (x) {
       return true;

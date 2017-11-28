@@ -7,6 +7,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule, Routes}  from '@angular/router';
@@ -17,6 +19,9 @@ import { SignUp } from '../pages/signup/signup';
 import { Home } from '../pages/home/home';
 import { Header } from '../pages/header/header';
 import { Footer } from '../pages/footer/footer';
+import { Category } from '../pages/category/category';
+import { ShowCategory} from '../pages/showcategory/showcategory';
+import { CreateCategory} from '../pages/createcategory/createcategory';
 
 import { HttpService } from '../service/httpService';
 
@@ -25,7 +30,9 @@ import {Auth} from '../service/auth';
 const appRoutes: Routes = [
   { path: '', component: Login },
   { path: 'singup', component: SignUp },
-  { path: 'home', component: Home, canActivate: [Auth], canDeactivate: [Auth] }
+  { path: 'home', component: Home, canActivate: [Auth] },
+  { path: 'category', component: Category, canActivate: [Auth] }
+
 ];
 
 const api_endpoint = 'http://localhost:3000/api/';
@@ -38,7 +45,10 @@ const api_endpoint = 'http://localhost:3000/api/';
     SignUp,
     Home,
     Header,
-    Footer
+    Footer,
+    Category,
+    ShowCategory,
+    CreateCategory
   ],
   exports: [RouterModule],
   imports: [
@@ -50,7 +60,9 @@ const api_endpoint = 'http://localhost:3000/api/';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [HttpService, Auth, { provide: 'API_ENDPOINT', useValue: api_endpoint }],
   bootstrap: [AppComponent, Header, Footer]

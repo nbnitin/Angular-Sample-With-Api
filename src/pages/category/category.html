@@ -1,0 +1,12 @@
+<mat-sidenav-container class="side-container">
+  <mat-sidenav mode="side" opened="true" class="example-sidenav">
+    <ul>
+      <li> <button mat-button (click)="switchPage(0)">Show</button> </li>
+      <li> <button mat-button (click)="switchPage(1)">Create</button> </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content class="example-sidenav-content">
+    <cate-child-show *ngIf="!currentPage"></cate-child-show>
+    <cate-child-create *ngIf="currentPage"></cate-child-create>
+  </mat-sidenav-content>
+</mat-sidenav-container>

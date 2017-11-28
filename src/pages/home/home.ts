@@ -8,10 +8,15 @@ import {HttpService} from '../../service/httpService';
   styleUrls: ['./home.scss'],
 
 })
-export class Home {
+export class Home implements OnInit {
 
   constructor() { }
+  private userInfo = {};
 
-
+  ngOnInit() {
+    this.userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    this.userInfo = this.userInfo[0]
+    console.log(this.userInfo.userName);
+  }
 
 }

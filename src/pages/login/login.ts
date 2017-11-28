@@ -14,19 +14,20 @@ export class Login implements OnInit {
   constructor(private router: Router, private httpService: HttpService) { }
 
   ngOnInit() {
-    // if (localStorage.getItem("isLoggedIn")) {
-    //   this.router.navigateByUrl("/home");
-    // }
+    if (localStorage.getItem("isLoggedIn")) {
+      //  this.router.navigateByUrl("/home");
+    }
   }
 
   login() {
     console.log(this.details);
     this.httpService.login(this.details).subscribe((data) => { //use methods in our service
       let response = data;
-      console.log(response.contents);
+      console.log(response.contents[0]);
+
       if (response.contents.length > 0) {
         localStorage.setItem('isLoggedIn', "true");
-        localStorage.setItem('userInfo', response.contents[0]);
+        localStorage.setItem('userInfo', response.contents);
         this.router.navigateByUrl("/home");
       } else { this.failedLogin = true }
 

@@ -1,0 +1,13 @@
+<div>
+  <form>
+    <mat-form-field class="textCategory">
+      <input matInput placeholder="Category Name" name="cateName" [(ngModel)]="details.cateName">
+    </mat-form-field>
+    <div class="fileContainer">
+      <input type="file" class="fileControl" name="cateImage" [(ngModel)]="details.cateImage" (change)="changeListner($event)" />
+      <img class="image" [src]="" />
+    </div>
+    <button mat-raised-button color="primary" class="btnCreate" (click)="create()">Create</button>
+    <mat-error *ngIf="done">Category Created</mat-error>
+  </form>
+</div>
