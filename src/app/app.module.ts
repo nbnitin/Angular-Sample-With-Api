@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule, Routes}  from '@angular/router';
@@ -62,7 +63,8 @@ const api_endpoint = 'http://localhost:3000/api/';
     MatButtonModule,
     MatRadioModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ],
   providers: [HttpService, Auth, { provide: 'API_ENDPOINT', useValue: api_endpoint }],
   bootstrap: [AppComponent, Header, Footer]

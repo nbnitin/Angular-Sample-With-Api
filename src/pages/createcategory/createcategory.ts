@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef} from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpService} from '../../service/httpService';
 
@@ -8,16 +8,12 @@ import {HttpService} from '../../service/httpService';
   styleUrls: ['./createcategory.scss'],
 
 })
-export class CreateCategory implements OnInit, AfterViewInit {
+export class CreateCategory implements OnInit {
 
   constructor(private httpService: HttpService, private element: ElementRef) { }
-  private details = {};
-  done = false;
-  image;
-  file: File;
-  ngAfterViewInit() {
-    this.image = this.element.nativeElement.querySelector('.image');
-  }
+  private details = { "cateName": "", "cateImage": "" };
+  private done = false;
+  private file: File;
 
   ngOnInit() {
     //this.image = this.element.nativeElement.querySelector('.image');
@@ -29,9 +25,8 @@ export class CreateCategory implements OnInit, AfterViewInit {
     var img = this.element.nativeElement.querySelector('.image');
 
     reader.onload = function(e) {
-      var src = e.target.result;
+      var src = reader.result;
       img.src = src;
-      this.image = img;
     };
     this.file = event.target.files[0];
     reader.readAsDataURL(event.target.files[0]);
@@ -44,10 +39,13 @@ export class CreateCategory implements OnInit, AfterViewInit {
     //formData.append("cateName", this.details.cateName);
     this.httpService.uploadCateImage(formData).subscribe((data) => {
       console.log(data);
-      // if (data.status == 1) {
-      //   this.done = true;
-      //   this.details = {}
-      // }
+      if (data.status == 1) {
+        var newEntry = { "cateName": this.details.cateName, "cateImage": data.contents };
+        this.details = newEntry;
+        this.httpService.createCategory(this.details).subscribe((data) => {
+          console.log(data);
+        });
+      }
 
     });
   }

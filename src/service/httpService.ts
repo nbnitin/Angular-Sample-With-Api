@@ -22,9 +22,7 @@ export class HttpService {
   //category
   createCategory(body): Observable<any> {
     console.log(body);
-    var header = new Headers();
-    header.append('Content-Type', 'application/json');
-    return this.http.post(this.api_endpoint + 'createCategory', body, header).map(response => response.json())
+    return this.http.post(this.api_endpoint + 'createCategory', body).map(response => response.json())
       .catch((err: Response | any) => {
         return Observable.throw(err.statusText);
       })
