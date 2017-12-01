@@ -4,7 +4,7 @@
     <mat-list-item>
       <img matListAvatar [src]=fetchImage(cate.cateImage) />
       <h4 mat-line>{{cate.cateName}}</h4>
-
+      <button (click)="view(cate._id)" class="btn"><mat-icon>mode_edit</mat-icon> </button>
       <button (click)="deleteCate(cate._id)"><mat-icon>delete_forever</mat-icon></button>
 
     </mat-list-item>

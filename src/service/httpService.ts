@@ -43,4 +43,18 @@ export class HttpService {
         return Observable.throw(err.statusText);
       })
   }
+
+  deleteCategory(body): Observable<any> {
+    return this.http.post(this.api_endpoint + 'deleteCategory', body).map(response => response.json())
+      .catch((err: Response | any) => {
+        return Observable.throw(err.statusText);
+      })
+  }
+
+  searchCategory(body): Observable<Response> {
+    return this.http.get(this.api_endpoint + 'searchCategory/' + body).map(response => response.json())
+      .catch((err: Response | any) => {
+        return Observable.throw(err.statusText);
+      })
+  }
 }

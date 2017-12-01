@@ -16,7 +16,6 @@ export class Home implements OnInit {
   ngOnInit() {
     this.userInfo = JSON.parse(localStorage.getItem("userInfo"));
     this.userInfo = this.userInfo[0]
-    console.log(this.userInfo.userName);
   }
 
 }

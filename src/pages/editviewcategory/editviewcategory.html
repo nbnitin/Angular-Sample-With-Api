@@ -1,0 +1,17 @@
+<div class="form">
+  <form>
+    <mat-form-field class="textCategory">
+      <input matInput placeholder="Category Name" name="cateName" [(ngModel)]="details.cateName">
+    </mat-form-field>
+    <div class="fileContainer">
+      <input type="file" class="fileControl" name="cateImage" (change)="changeListner($event)" />
+      <img class="image" [src]="details.cateImage || ''" />
+      <!-- to remove error of undefiend, actually view loads earlier
+         before loading image from url, in the mean time that null
+          url occurs, which give error of null or undefiend to remove that we did like this  details.cateImage || ''"
+        -->
+    </div>
+    <button mat-raised-button color="primary" class="btnCreate" (click)="create()">Update</button>
+    <mat-error *ngIf="done">Category Updated</mat-error>
+  </form>
+</div>

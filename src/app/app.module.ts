@@ -10,6 +10,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule, Routes}  from '@angular/router';
@@ -21,8 +22,9 @@ import { Home } from '../pages/home/home';
 import { Header } from '../pages/header/header';
 import { Footer } from '../pages/footer/footer';
 import { Category } from '../pages/category/category';
-import { ShowCategory} from '../pages/showcategory/showcategory';
-import { CreateCategory} from '../pages/createcategory/createcategory';
+import { ShowCategory } from '../pages/showcategory/showcategory';
+import { CreateCategory } from '../pages/createcategory/createcategory';
+import { EditViewCategory } from '../pages/editviewcategory/editviewcategory';
 
 import { HttpService } from '../service/httpService';
 
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
   { path: '', component: Login },
   { path: 'singup', component: SignUp },
   { path: 'home', component: Home, canActivate: [Auth] },
-  { path: 'category', component: Category, canActivate: [Auth] }
+  { path: 'category', component: Category, canActivate: [Auth] },
+  { path: 'updateCate/:id', component: EditViewCategory, canActivate: [Auth] }
 
 ];
 
@@ -49,7 +52,8 @@ const api_endpoint = 'http://localhost:3000/api/';
     Footer,
     Category,
     ShowCategory,
-    CreateCategory
+    CreateCategory,
+    EditViewCategory
   ],
   exports: [RouterModule],
   imports: [
@@ -64,7 +68,8 @@ const api_endpoint = 'http://localhost:3000/api/';
     MatRadioModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [HttpService, Auth, { provide: 'API_ENDPOINT', useValue: api_endpoint }],
   bootstrap: [AppComponent, Header, Footer]
