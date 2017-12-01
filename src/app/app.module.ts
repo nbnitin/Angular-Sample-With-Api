@@ -40,7 +40,7 @@ const appRoutes: Routes = [
 ];
 
 const api_endpoint = 'http://localhost:3000/api/';
-
+const image_load = 'http://localhost:3000/images/';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,7 @@ const api_endpoint = 'http://localhost:3000/api/';
     MatIconModule,
     MatSnackBarModule
   ],
-  providers: [HttpService, Auth, { provide: 'API_ENDPOINT', useValue: api_endpoint }],
+  providers: [HttpService, Auth, { provide: 'API_ENDPOINT', useValue: api_endpoint }, { provide: "IMAGE_ENDPOINT", useValue: image_load }],
   bootstrap: [AppComponent, Header, Footer]
 })
 export class AppModule { }

@@ -51,7 +51,7 @@ export class HttpService {
       })
   }
 
-  searchCategory(body): Observable<Response> {
+  searchCategory(body): Observable<any> {
     return this.http.get(this.api_endpoint + 'searchCategory/' + body).map(response => response.json())
       .catch((err: Response | any) => {
         return Observable.throw(err.statusText);
