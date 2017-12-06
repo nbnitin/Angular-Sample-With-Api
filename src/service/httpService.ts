@@ -57,4 +57,12 @@ export class HttpService {
         return Observable.throw(err.statusText);
       })
   }
+
+  updateCategory(body): Observable<any> {
+    console.log(body);
+    return this.http.post(this.api_endpoint + 'updateCategory', body).map(response => response.json())
+      .catch((err: Response | any) => {
+        return Observable.throw(err.statusText);
+      })
+  }
 }
