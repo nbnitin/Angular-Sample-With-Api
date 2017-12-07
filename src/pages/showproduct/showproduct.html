@@ -1,0 +1,13 @@
+<mat-list>
+  <h3 mat-subheader>All Products</h3>
+  <div *ngFor="let cate of category">
+    <h3 matSubheader>{{cate.cateName}}</h3>
+    <mat-list-item *ngFor="let product of cate.product | key ">
+      <img matListAvatar [src]=fetchImage(cate.product[product].productImage) />
+      <h4 matLine>{{cate.product[product].productName}}</h4>
+      <button (click)="view(cate._id)" class="btn"><mat-icon>mode_edit</mat-icon> </button>
+      <button (click)="deleteCate(cate._id,cate.product[product]._productId)"><mat-icon>delete_forever</mat-icon></button>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </div>
+</mat-list>

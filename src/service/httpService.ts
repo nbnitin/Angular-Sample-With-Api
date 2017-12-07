@@ -65,4 +65,31 @@ export class HttpService {
         return Observable.throw(err.statusText);
       })
   }
+
+  //product
+  createProduct(body): Observable<any> {
+    console.log(body);
+    return this.http.post(this.api_endpoint + 'createProduct', body).map(response => response.json())
+      .catch((err: Response | any) => {
+        return Observable.throw(err.statusText);
+      })
+  }
+
+  deleteProduct(body): Observable<any> {
+    console.log(body);
+    return this.http.post(this.api_endpoint + 'deleteProduct', body).map(response => response.json())
+      .catch((err: Response | any) => {
+        return Observable.throw(err.statusText);
+      })
+  }
+
+  uploadProductImage(body): Observable<any> {
+    console.log(body);
+    return this.http.post(this.api_endpoint + 'uploadProductImage', body).map(response => response.json())
+      .catch((err: Response | any) => {
+        return Observable.throw(err.statusText);
+      })
+  }
+
+
 }

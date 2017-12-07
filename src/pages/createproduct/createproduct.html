@@ -1,0 +1,21 @@
+<div>
+  <form>
+    <mat-form-field>
+      <mat-select placeholder="Select Category" name="_id" [(ngModel)]="details._id">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let cate of category" [value]="cate._id">
+          {{ cate.cateName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="textCategory">
+      <input matInput placeholder="Product Name" name="productName" [(ngModel)]="details.productName">
+    </mat-form-field>
+    <div class="fileContainer">
+      <input type="file" class="fileControl" name="productImage" (change)="changeListner($event)" />
+      <img class="image" [src]="" />
+    </div>
+    <button mat-raised-button color="primary" class="btnCreate" (click)="create()">Create</button>
+    <mat-error *ngIf="done">Product Created</mat-error>
+  </form>
+</div>

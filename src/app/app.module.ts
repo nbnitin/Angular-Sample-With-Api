@@ -11,6 +11,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSelectModule} from '@angular/material/select';
+
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule, Routes}  from '@angular/router';
@@ -26,7 +28,12 @@ import { ShowCategory } from '../pages/showcategory/showcategory';
 import { CreateCategory } from '../pages/createcategory/createcategory';
 import { EditViewCategory } from '../pages/editviewcategory/editviewcategory';
 
+import { Product } from '../pages/product/product';
+import { ShowProduct } from '../pages/showproduct/showproduct';
+import { CreateProduct} from '../pages/createproduct/createproduct';
+
 import { HttpService } from '../service/httpService';
+import { ParseJson } from '../service/jsonParsePipe';
 
 import {Auth} from '../service/auth';
 
@@ -35,7 +42,8 @@ const appRoutes: Routes = [
   { path: 'singup', component: SignUp },
   { path: 'home', component: Home, canActivate: [Auth] },
   { path: 'category', component: Category, canActivate: [Auth] },
-  { path: 'updateCate/:id', component: EditViewCategory, canActivate: [Auth] }
+  { path: 'updateCate/:id', component: EditViewCategory, canActivate: [Auth] },
+  { path: 'product', component: Product, canActivate: [Auth] }
 
 ];
 
@@ -53,7 +61,11 @@ const image_load = 'http://localhost:3000/images/';
     Category,
     ShowCategory,
     CreateCategory,
-    EditViewCategory
+    EditViewCategory,
+    Product,
+    ShowProduct,
+    CreateProduct,
+    ParseJson
   ],
   exports: [RouterModule],
   imports: [
@@ -69,7 +81,8 @@ const image_load = 'http://localhost:3000/images/';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule
   ],
   providers: [HttpService, Auth, { provide: 'API_ENDPOINT', useValue: api_endpoint }, { provide: "IMAGE_ENDPOINT", useValue: image_load }],
   bootstrap: [AppComponent, Header, Footer]
